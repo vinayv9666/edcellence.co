@@ -8,7 +8,7 @@ WORKDIR /usr/share/nginx/html
 #RUN rm -rf ./*
 
 # Copy the built application from the local directory to the container
-COPY deepa-popli/. /usr/share/nginx/html
+COPY . /usr/share/nginx/html
 
 # Copy a custom Nginx configuration file
 #COPY nginx.conf /etc/nginx/conf.d/default.conf
