@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Create container') {
             steps {
-                sh 'docker run -itd --name edcellencev1 -p 5200:80 edcellence'
+                sh 'docker run -itd --name edcellencev2 -p 5200:80 edcellence'
             }
         }
     }
