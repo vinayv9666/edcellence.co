@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Git checkout') {
+            steps {
+                git 'https://github.com/vinayv9666/edcellence.co.git'
+            }
+        }
+        stage('Create docker image') {
+            steps {
+                sh 'docker build -t edcellence .'
+            }
+        }
+        stage('Create container') {
+            steps {
+                sh 'docker run -itd --name edcellencev1 -p 5200:80 edcellence'
+            }
+        }
+    }
+}
