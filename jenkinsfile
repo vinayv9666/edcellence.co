@@ -7,9 +7,19 @@ pipeline {
                 git 'https://github.com/vinayv9666/edcellence.co.git'
             }
         }
+        stage('Removing old docker images') {
+            steps {
+                sh 'docker rmi edcellence --force'
+            }
+        }
         stage('Create docker image') {
             steps {
                 sh 'docker build -t edcellence .'
+            }
+        }
+        stage('Removing old container') {
+            steps {
+                sh 'docker rm edcellencev1 --force'
             }
         }
         stage('Create container') {
